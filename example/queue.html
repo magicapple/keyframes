@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test</title>
+</head>
+<style>
+  #block{
+    position:absolute;
+    left: 150px;
+    top: 100px;
+    width: 50px;
+    height: 50px;
+    background: #0c8;
+    line-height: 50px;
+    text-align: center;
+  }
+</style>
+<body>
+  <h2>Queue</h2>
+  <div id="block">click</div>
+  <script src="/js/index.js"></script>
+  <script>
+    let keyframes = new KeyFrames();
+    keyframes.addFrames(
+      {
+        p: 0.25,
+        frame: {
+          //pos: [100, 200],  
+          translate: [100, 0],
+        },
+        easing: [0.68, -0.55, 0.265, 1.55]
+      },{
+        p: 0.5,
+        frame: {
+          //size: [100, 100],
+          //pos: [200, 200],
+          color: '#fff',
+          scale: 2.0,
+          translate: [100, 100],
+        }
+      },{
+        p: 0.75,
+        frame: {
+          bgcolor: 'red',
+          //pos: [200, 100],
+          translate: [0, 100],
+          rotate: 170
+        }
+      }
+    );
+
+    let animation = keyframes.applyFramesTo(block, 5000);
+
+    block.addEventListener('click', function(){
+      animation.animate();
+    });
+  </script>
+</body>
+
+</html>
